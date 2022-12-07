@@ -8,9 +8,10 @@ pipeline {
     stages {
         stage('Lister les variables') {
             steps {
-                echo "Username engine is ${USERNAME}"
-                echo "Favorite color is ${FAVORITE_COLOR}"
-                sh 'printenv'
+                echo "USERNAME : ${USERNAME}"
+                echo "FAVORITE_COLOR : ${FAVORITE_COLOR}"
+                echo "env.USERNAME : ${env.USERNAME}"
+                echo "env.FAVORITE_COLOR : ${env.FAVORITE_COLOR}"
             }
         }
         stage('Utilisation des variables') {
@@ -20,6 +21,7 @@ pipeline {
                     env.FAVORITE_COLOR = 'red'
                 }
                 echo "Favorite color is ${FAVORITE_COLOR}"
+                echo "env.FAVORITE_COLOR : ${env.FAVORITE_COLOR}"
             }
         }
     }
