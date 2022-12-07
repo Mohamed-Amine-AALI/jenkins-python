@@ -1,24 +1,25 @@
 pipeline {
     agent any
     environment { 
-        username = 'mohamed-amine'
-        favoritecolor = 'blue'
+        USERNAME = 'mohamed-amine'
+        FAVORITE_COLOR = 'blue'
     }
 
     stages {
         stage('Lister les variables') {
             steps {
-                steps {
-                    sh 'printenv'
-                }
+                echo "Username engine is ${USERNAME}"
+                echo "Favorite color is ${FAVORITE_COLOR}"
+                sh 'printenv'
             }
         }
         stage('Utilisation des variables') {
             steps {
-                environment { 
-                    hobby = 'coding'
-                    favoritecolor = 'red'
+                script {
+                    env.HOBBY = 'coding'
+                    env.FAVORITE_COLOR = 'red'
                 }
+                echo "Favorite color is ${FAVORITE_COLOR}"
             }
         }
     }
