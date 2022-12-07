@@ -20,7 +20,13 @@ pipeline {
                     env.HOBBY = 'coding'
                     env.FAVORITE_COLOR = 'red'
                 }
-                echo "env.HOBBY is ${FAVORITE_COLOR}"
+                echo "env.HOBBY is ${env.HOBBY}"
+
+                script {
+                    env.HOBBY = 'eating'
+                }
+                echo "env.HOBBY is ${env.HOBBY}"
+
                 echo "Favorite color is ${FAVORITE_COLOR}"
                 echo "env.FAVORITE_COLOR : ${env.FAVORITE_COLOR}"
             }
